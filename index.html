@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/style_main_page.css">
+    <title>Workbook - рабочая тетрадь по решению задач (HTML, CSS, JS)</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-logo">Лого</div>
+            <div class="header-title">Как это сделать?</div>
+            <p class="choose-stack">Выбери задачу:</p>
+            <ul class="header-nav">
+                <li><a href="index1.html">HTML</a></li>
+                <li><a href="index2.html">CSS</a></li>
+                <li><a href="index3.html">JavaScript</a></li>
+            </ul>
+        </header>
+        <main>
+            <h1 class="task">Задача: Как прижать футер к нижнему краю экрана вне зависимости от количества контента на странице?</h1>
+
+            <div class="solution">
+                <div class="code"></div>
+                <div class="stack">
+                    <div class="stack-btn">
+                        <button class="html">HTML</button>
+                        <button class="css">CSS</button>
+                        <button class="js" disabled>JavaScript</button>
+                    </div>
+                    <div class="stack-explain">
+                        <p>Чтобы прижать футер к нижнему краю экрана вне зависимости от количества контента на странице необходимо:</p>
+                        <ol>
+                            <li>Обернуть всю страницу в блок, сделать из его флекс-контейнер.</li>
+                            <li>Внутрь вложить хэдер, мейн и футер.</li>
+                            <li>Родителю задать flex-direction: column чтобы блоки встали друг под другом, а не в ряд, и min-height:
+                                100vh, чтобы он занимал как минимум всю высоту экрана.</li>
+                            <li>Мейну задать flex: 1 (или flex-grow: 1;)</li>
+                        </ol>
+                        <p>В результате: </p>
+                        <ul>
+                            <li>Центральный блок страницы будет всегда растягиваться на всё доступное свободное пространство.</li>
+                            <li>Из-за этого футер всегда будет прижиматься к нижнему краю страницы.</li>
+                            <li>При этом, если контента в мейне будет больше чем на один экран, то он растянется и подстроится,
+                                ничего не сломается.</li>
+                        </ul>
+                    </div>
+                    <p>
+                        Для материала на главной странице использован 
+                        <a href="https://doka-guide.vercel.app/css/flexbox-guide/" target="_blank">источник.</a>
+                    </p>
+                </div>
+
+            </div>
+        </main>
+        <footer>
+            <p>(с) The All Spark, 2024 </p>
+            <!-- <div class="link"> Вставить ссылки на GitHub, LinkedIn</div> -->
+        </footer>
+    </div>
+</body>
+
+</html>

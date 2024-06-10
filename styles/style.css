@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Roboto bold';
+    src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto regular';
+    src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+body {
+    width: 75%;
+    margin: 0 auto;
+    font-family: 'Roboto regular';
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* ------------------- Стили шапки (header) ------------------- */
+
+header {
+    display: grid;
+    grid-template-areas: "logo title choose nav";
+    grid-template-columns: 0.6fr 1.2fr 0.5fr 2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 10px;
+    height: 50px;
+}
+
+.header-logo {
+    grid-area: logo;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(175, 175, 175);
+    justify-self: center;
+}
+
+.header-title {
+    grid-area: title;
+    justify-self: start;
+    font-family: 'Roboto bold';
+    font-size: 20px;
+}
+
+.choose-stack {
+    grid-area: choose;
+    justify-self: end;
+}
+
+.header-nav {
+    grid-area: nav;
+    align-self: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* ----------- Меню ------------- */
+/*отступы от края страницы*/
+/*.header-nav {
+    margin: 10px;
+    padding: 30px;
+}*/
+
+/*сделать меню из вертикального списка - горизонтальным*/
+.header-nav li {
+    display: inline-block;
+}
+
+/*параметры кнопок по умолчанию*/
+.header-nav a {
+    display: inline-block;
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: Times New Roman;
+    border: 1px solid black;
+    /*при наведении кнопки не скачут*/
+}
+
+/*параметры при наведении курсора мышки на кнопку - серый фон*/
+.header-nav a:hover {
+    background-color: #999999;
+    border: 1px solid transparent;
+    /*при наведении кнопки не скачут*/
+}
+
+/*параметры для активной кнопки - белый фон. Класс активной кнопки (active) должен быть прописан для соответствующей кнопки в каждом файле*/
+/*.active a {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}*/
+
+/* ------------------- Сиили, общие для всех блоков (main) ------------------- */
+
+h1 {
+    text-align: left;
+    font-family: 'Roboto bold';
+    font-size: 20px;
+}
+
+
+/* ------------------- Стили подвала (footer) ------------------- */
+
+footer {
+    background-color: #eaeaea;
+    padding: 10px;
+    height: 40px;
+    text-align: center;
+}

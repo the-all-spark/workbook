@@ -1,0 +1,74 @@
+/* ---- Основного стили блока ---- */
+
+.container {
+    display: flex;
+    /*делаем контейнер флексом*/
+    flex-direction: column;
+    /*выстраиваем элементы сверху вниз*/
+    min-height: 100vh;
+    /*отображаем блок на весь экран*/
+}
+
+main {
+    background-color: #fefef3;
+    padding: 30px 50px;
+    flex: 1;
+    /* или flex-grow: 1; - элемент занимает максимально свободного пространства*/
+}
+
+/* ---- Прочие стили ---- */
+/*.solution {
+    display: grid;
+    grid-template-areas: "code stack";
+    grid-template-columns: 60% 35%;
+    grid-template-rows: 1fr;
+    column-gap: 50px;
+}
+
+.code {
+    grid-area: code;
+    width: auto;
+    height: 630px;
+    background-color: rgb(186, 193, 200);
+}
+
+.stack {
+    grid-area: stack;
+    width: auto;
+    height: 630px;
+    background-color: rgb(186, 193, 200);
+}*/
+
+.solution {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.code {
+    width: 58%;
+    height: 630px;
+    background-color: rgb(186, 193, 200);
+}
+
+.stack {
+    width: 38%;
+    height: 630px;
+    background-color: rgb(186, 193, 200);
+}
+
+.stack-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stack-btn button {
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+
+/*.link {
+    text-align: right;
+}*/
