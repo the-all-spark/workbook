@@ -20,33 +20,95 @@ body {
 
 header {
     display: grid;
-    grid-template-areas: "logo title choose nav";
-    grid-template-columns: 0.6fr 1.2fr 0.5fr 2fr;
+    grid-template-areas: "logo-title choose nav";
+    grid-template-columns: 35% 15% 35%;
     grid-template-rows: 1fr;
     align-items: center;
+    justify-content: center;
     background-color: #eaeaea;
     padding: 10px;
     height: 50px;
+    width: 100%;
+    margin: 0 auto;
+}
+.header-logo-title {
+    grid-area: logo-title;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fdfdfd;
+    padding: 4px 28px;
 }
 
 .header-logo {
-    grid-area: logo;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     background-color: rgb(175, 175, 175);
     justify-self: center;
+    position: relative;
+    z-index: 1;
+}
+
+.header-logo::before {
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #fdfdfd;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background-color: rgb(239, 239, 239);
+    z-index: 2;
+}
+
+.header-logo::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 17px;
+    border-left: 3px solid #fdfdfd;
+    position: absolute;
+    right: -1px;
+    top: 5px;
+    transform: rotate(335deg);
+    z-index: -1;
 }
 
 .header-title {
-    grid-area: title;
     justify-self: start;
     font-family: 'Roboto bold';
-    font-size: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 5px 10px 3px 30px;
+}
+
+.header-cursor {
+    width: 10px;
+    height: 20px;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.header-cursor::before {
+    box-sizing: border-box;
+    content: "";
+    border-left: 2px solid black;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    left: calc(50% - 0.8px);
 }
 
 .choose-stack {
     grid-area: choose;
     justify-self: end;
+    font-size: 16px;
 }
 
 .header-nav {
@@ -72,7 +134,7 @@ header {
 /*параметры кнопок по умолчанию*/
 .header-nav a {
     display: inline-block;
-    width: 100px;
+    width: 70px;
     padding: 10px;
     border-radius: 5px;
     background-color: black;
@@ -82,6 +144,7 @@ header {
     text-align: center;
     font-family: Times New Roman;
     border: 1px solid black;
+    margin-right: 10px;
     /*при наведении кнопки не скачут*/
 }
 
@@ -99,7 +162,7 @@ header {
     border: 1px solid black;
 }*/
 
-/* ------------------- Сиили, общие для всех блоков (main) ------------------- */
+/* ------------------- Стили, общие для всех блоков (main) ------------------- */
 
 h1 {
     text-align: left;
