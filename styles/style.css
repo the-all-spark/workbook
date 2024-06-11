@@ -21,11 +21,11 @@ body {
 header {
     display: grid;
     grid-template-areas: "logo-title choose nav";
-    grid-template-columns: 35% 15% 35%;
+    grid-template-columns: 35% 15% 40%;
     grid-template-rows: 1fr;
     align-items: center;
     justify-content: center;
-    background-color: #eaeaea;
+    background-color: #d1d1d1;
     padding: 10px;
     height: 50px;
     width: 100%;
@@ -45,7 +45,7 @@ header {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: rgb(175, 175, 175);
+    background-color: rgb(26 49 97 / 79%);
     justify-self: center;
     position: relative;
     z-index: 1;
@@ -119,48 +119,97 @@ header {
 }
 
 
-/* ----------- Меню ------------- */
-/*отступы от края страницы*/
-/*.header-nav {
-    margin: 10px;
-    padding: 30px;
-}*/
+/* ---------------- Меню ------------------ */
 
-/*сделать меню из вертикального списка - горизонтальным*/
-.header-nav li {
-    display: inline-block;
-}
+/*  ---- Стили кнопок меню ---- */
 
-/*параметры кнопок по умолчанию*/
 .header-nav a {
-    display: inline-block;
-    width: 70px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: black;
     text-decoration: none;
     color: white;
-    font-weight: bold;
+}
+
+.button-menu {
+    position: relative;
+    padding: 0 8px 12px;
+    min-width: 120px;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
+.button-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+    padding: 8px 16px;
+    transform: translateY(0);
     text-align: center;
-    font-family: Times New Roman;
-    border: 1px solid black;
-    margin-right: 10px;
-    /*при наведении кнопки не скачут*/
+    color: #6c6c6c;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.25);
+    transition-property: transform;
+    transition-duration: 0.2s;
+    user-select: none;
 }
 
-/*параметры при наведении курсора мышки на кнопку - серый фон*/
-.header-nav a:hover {
-    background-color: #999999;
-    border: 1px solid transparent;
-    /*при наведении кнопки не скачут*/
+.button-top::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    background-image: radial-gradient(#ffffff, #f8f8f8);
+    text-align: center;
+    transition-property: border-radius, padding, width, transform;
+    transition-duration: 0.2s;
 }
 
-/*параметры для активной кнопки - белый фон. Класс активной кнопки (active) должен быть прописан для соответствующей кнопки в каждом файле*/
-/*.active a {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-}*/
+.button-bottom {
+    position: absolute;
+    z-index: 1;
+    bottom: 4px;
+    left: 4px;
+    border-radius: 8px / 16px 16px 8px 8px;
+    padding-top: 6px;
+    width: calc(100% - 8px);
+    height: calc(100% - 10px);
+    box-sizing: content-box;
+    background-color: #fff;
+    background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), rgba(255, 255, 255, 0.25), transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), rgba(255, 255, 255, 0.25), transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+    box-shadow: 1px 2px 1px 1px rgb(26 49 97 / 79%), inset -1px -3px 4px 2px rgb(64 118 187 / 68%);
+    transition-property: border-radius, padding-top;
+    transition-duration: 0.2s;
+}
+
+.button-base {
+    position: absolute;
+    z-index: 0;
+    top: 4px;
+    left: 0;
+    border-radius: 12px;
+    width: 100%;
+    height: calc(100% - 4px);
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* эффекты кнопок при клике*/
+
+.button-menu:active .button-top {
+    transform: translateY(6px);
+}
+
+.button-menu:active .button-top::after {        
+    border-radius: 6px;
+    padding: 0 2px;
+}
+
+.button-menu:active .button-bottom {
+    border-radius: 10px 10px 8px 8px / 8px;
+    padding-top: 0;
+}
 
 /* ------------------- Стили, общие для всех блоков (main) ------------------- */
 
@@ -169,7 +218,6 @@ h1 {
     font-family: 'Roboto bold';
     font-size: 20px;
 }
-
 
 /* ------------------- Стили подвала (footer) ------------------- */
 
