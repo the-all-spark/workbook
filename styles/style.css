@@ -16,6 +16,12 @@ body {
     font-size: 16px;
 }
 
+.stack code {
+    /*font-weight: 300;*/
+    color: #dd2c2c;
+    display: inline-block;
+}
+
 /* ------------------- Стили шапки (header) ------------------- */
 
 header {

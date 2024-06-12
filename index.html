@@ -53,7 +53,37 @@
             <h1 class="task">Задача: <span>Как прижать футер к нижнему краю экрана вне зависимости от количества контента на странице?</span></h1>
 
             <div class="solution">
-                <div class="code"></div>
+                <div class="code">
+
+<!-- Код решения задачи -->                    
+<pre>
+<code class="code-html">
+&lt;div class="container"&gt;
+    &lt;header&gt; &lt;!-- Блок header--&gt; &lt;/header&gt;
+    &lt;main&gt; &lt;!-- Блок main--&gt; &lt;/main&gt;
+    &lt;footer&gt; &lt;!-- Блок footer--&gt; &lt;/footer&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="code-css">
+.container {
+    display: flex; 
+    /*делаем контейнер флексом*/
+    flex-direction: column; 
+    /*выстраиваем элементы сверху вниз*/
+    min-height: 100vh; 
+    /*отображаем блок на весь экран*/
+} 
+main {
+    flex: 1; /*flex-grow: 1;*/
+    /*элемент занимает максимально свободного пространства*/
+}
+</code>
+</pre>
+
+                </div>
                 <div class="stack">
                     <div class="stack-btn">
                         <button class="html">HTML</button>
@@ -61,20 +91,19 @@
                         <button class="js" disabled>JavaScript</button>
                     </div>
                     <div class="stack-explain">
-                        <p>Чтобы прижать футер к нижнему краю экрана вне зависимости от количества контента на странице необходимо:</p>
                         <ol>
-                            <li>Обернуть всю страницу в блок, сделать из его флекс-контейнер.</li>
-                            <li>Внутрь вложить хэдер, мейн и футер.</li>
-                            <li>Родителю задать flex-direction: column чтобы блоки встали друг под другом, а не в ряд, и min-height:
-                                100vh, чтобы он занимал как минимум всю высоту экрана.</li>
-                            <li>Мейну задать flex: 1 (или flex-grow: 1;)</li>
+                            <li>обернуть всю страницу в блок, например, <code>&lt;div class="container"&gt;</code>;</li>
+                            <li>сделать из блока-обертки flex-контейнер;</li>
+                            <li>в блок-обертку вложить <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> и <code>&lt;footer&gt;</code>;</li>
+                            <li>родителю (блоку-обертке) задать <code>flex-direction: column;</code> чтобы блоки встали друг под другом, а не в ряд;
+                            <li>родителю задать <code>min-height: 100vh;</code>, чтобы он занимал как минимум всю высоту экрана;</li>
+                            <li>блоку <code>&lt;main&gt;</code> задать <code>flex: 1;</code> (или <code>flex-grow: 1;</code>)</li>
                         </ol>
-                        <p>В результате: </p>
+                        <p class="stack-explain-result">В результате: </p>
                         <ul>
-                            <li>Центральный блок страницы будет всегда растягиваться на всё доступное свободное пространство.</li>
-                            <li>Из-за этого футер всегда будет прижиматься к нижнему краю страницы.</li>
-                            <li>При этом, если контента в мейне будет больше чем на один экран, то он растянется и подстроится,
-                                ничего не сломается.</li>
+                            <li>Центральный блок страницы (<code>&lt;main&gt;</code>) будет всегда растягиваться на всё доступное свободное пространство.</li>
+                            <li>Из-за этого <code>&lt;footer&gt;</code> всегда будет прижиматься к нижнему краю страницы.</li>
+                            <li>При этом, если контента в <code>&lt;main&gt;</code> будет больше чем на один экран, то он растянется и подстроится под весь объем.</li>
                         </ul>
                     </div>
                     <div class="stack-reference">
