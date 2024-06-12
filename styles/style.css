@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Roboto bold';
-    src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+    src: url('../fonts/Roboto-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Roboto regular';
-    src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
 
 body {
@@ -245,7 +245,7 @@ footer p {
 
 footer p::before {
     content: "";
-    background-image: url(/assets/copyright-regular_grey.svg);
+    background-image: url(../assets/copyright-regular_grey.svg);
     display: inline-block;
     width: 20px;
     height: 20px;
