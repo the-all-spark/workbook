@@ -171,7 +171,7 @@ header {
     box-sizing: content-box;
     background-image: radial-gradient(#ffffff, #e0e0e0);
     text-align: center;
-    transition-property: border-radius, padding, width, transform;
+    transition-property: border-radius, padding, width, transform, background-image;
     transition-duration: 0.2s;
 }
 
@@ -215,6 +215,7 @@ header {
 .button-menu:hover .button-top::after {        
     border-radius: 6px;
     padding: 0 2px;
+    background-image: radial-gradient(#e9e9e9, #cccccc);
 }
 
 .button-menu:active .button-bottom,
