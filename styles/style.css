@@ -22,6 +22,10 @@ body {
     display: inline-block;
 }
 
+.code {
+    color: #ffffff;
+}
+
 /* ------------------- Стили шапки (header) ------------------- */
 
 header {
@@ -264,3 +268,27 @@ footer p::before {
 .link:hover {
     cursor: pointer;
 }
+
+/* ------------------- Стилизация HTML кода --------------------- */
+
+.tagNameDecor { /* тег, например, div, code...*/
+    color: #4D83B8;
+}
+
+.attributeNameDecor { /* атрибут, например, class, href...*/
+    color: #8BC5E0;
+}
+
+.attrValueDecor { /* значение атрибута в кавычках, например, "code-html" */
+    color: #BC8A70;
+}
+
+.commentsDecor { /* комментарии в  <!-- ... --> */
+    color: #62804D;
+}
+
+.angleBracketSlashDecor { /* угловые скобки < > и слэш /  */
+    color: #767A7D;
+}
+
+/* ------------------- Стилизация CSS кода --------------------- */
