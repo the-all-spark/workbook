@@ -11,7 +11,7 @@ function start() {
 
     } else {
         let codeHtml = document.querySelector(".code-html").innerText; //содержит сам текст кода
-        decorateCode(codeHtml);
+        console.log(codeHtml);
     }
 
     //проверяем, выведен ли на странице код CSS
@@ -24,7 +24,6 @@ function start() {
     } else {
         let codeCss = document.querySelector(".code-css");
         console.log(codeCss);
-        //decorateCode();
     }
 
     //проверяем, выведен ли на странице код JS
@@ -36,8 +35,7 @@ function start() {
 
     } else {
         let codeJs = document.querySelector(".code-js");
-        console.log(codeJs);
-        //decorateCode();                                                                     //добавить регулярные выражения для JS!
+        console.log(codeJs);                                                                 
     }
 
 }
@@ -46,13 +44,4 @@ function start() {
 function makeButtonDisabled(button) {
     console.log("Делаем соответствующую кнопку неактивной!");
     button.setAttribute("disabled", "");
-}
-
-// функция "украшивания" кода
-function decorateCode(code) {
-    console.log("Украшаем код!");
-    console.log(`${code} переданный код для украшивания`);
-
-    //находим в тексте кода соответствующие слова (по регулярному выражению)
-    //каждое найденное совпадение обертываем в <span class="соответствующий класс"></span> для стилизации
 }
