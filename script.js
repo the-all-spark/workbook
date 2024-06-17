@@ -42,6 +42,7 @@ function start() {
 function makeButtonDisabled(button) {
     console.log("Делаем соответствующую кнопку неактивной!");
     button.setAttribute("disabled", "");
+    button.style.cursor = "not-allowed";
 }
 
 // функция подсвечивает код при клике на кнопку
@@ -86,5 +87,5 @@ function cancelMarkCode(code, button) {
         button[i].style.border = "2px solid #d1d1d1";
         button[i].classList.remove("marked-btn");
     }
-    
+
 }
