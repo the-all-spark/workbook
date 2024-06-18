@@ -8,7 +8,7 @@ function start() {
         let btnHtml = document.querySelector("button.html");
         makeButtonDisabled(btnHtml); //вызов функции блокировки кнопки
     } else {
-        // если код отображается, подсвечиваем код при клике на кнопку
+        // если код отображается, подсвечиваем его при клике на кнопку
         let codeHtml = document.querySelector(".code-html"); //содержит код HTML
         let btnHtml = document.querySelector(".stack-btn button.html"); // кнопка стека
         btnHtml.addEventListener("click", function () { markCode(codeHtml, btnHtml) });  
@@ -60,6 +60,7 @@ function markCode(code, button) {
 
     // если блок или кнопка не выделены - устанавливаем стили выделения
     code.style.backgroundColor = "rgb(22 22 22 / 91%)";
+    code.style.transition = "background-color 0.4s linear";
     button.style.backgroundColor = "rgb(22 22 22 / 91%)";
     button.style.color = "#bababa";
     button.style.border = "2px solid rgb(22 22 22 / 91%)";
@@ -82,7 +83,7 @@ function cancelMarkCode(code, button) {
 
     // возвращаем стандартное выделение кнопкам (кроме последнего элемента в коллекции - текущего) и удаляем класс
     for(let i = 0; i <=  button.length - 1; i++) {
-        button[i].style.backgroundColor = "#fdfdfd";
+        button[i].style.backgroundColor = "#fdfdfd";     
         button[i].style.color = "#000000";
         button[i].style.border = "2px solid #d1d1d1";
         button[i].classList.remove("marked-btn");
