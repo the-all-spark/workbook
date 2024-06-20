@@ -8,7 +8,7 @@ function start() {
         let btnHtml = document.querySelector("button.html");
         makeButtonDisabled(btnHtml); //вызов функции блокировки кнопки
     } else {
-        // если код отображается, подсвечиваем его при клике на кнопку
+        // если код отображается, выделяем его при клике на кнопку (фоном)
         let codeHtml = document.querySelector(".code-html"); //содержит код HTML
         let btnHtml = document.querySelector(".stack-btn button.html"); // кнопка стека
         btnHtml.addEventListener("click", function () { markCode(codeHtml, btnHtml) });  
@@ -36,17 +36,34 @@ function start() {
         btnJs.addEventListener("click", function () { markCode(codeJs, btnJs) });  
     }
 
+    // при наведении на текст пояснения решения (пункты списка) подчеркиваем код слева
+    let solutionElem = document.querySelectorAll(".stack-explain-solution li"); // пункты списка
+    //console.log(solutionElem);
+
+    // перебираем элементы li и отдельно в них - элементы span
+    for(let i = 0; i < solutionElem.length; i++) {
+        
+        for(let j = 0; j < solutionElem[i].children.length; j++) {
+            //console.log(solutionElem[i]); // сам элемент li
+            //console.log(solutionElem[i].children[j]); // вложенные в li span-ы
+            //console.log(solutionElem[i].children[j].innerText); // фрагмент кода span в строке li
+
+            // для каждого пункта списка при наведении вызываем функцию подчеркивания 
+            solutionElem[i].addEventListener("mouseover", function () { showCodeSolution(solutionElem[i], solutionElem[i].children[j].innerText) });
+        }
+    }
+
 }
 
-// если на странице отсутствует HTML, CSS или JS код, кнопка становится неактивной
+// функция делает кнопку неактивной, если на странице отсутствует HTML, CSS или JS код
+// принимает нажатую кнопку
 function makeButtonDisabled(button) {
-    console.log("Делаем соответствующую кнопку неактивной!");
     button.setAttribute("disabled", "");
     button.style.cursor = "not-allowed";
 }
 
-// функция подсвечивает код при клике на кнопку
-// принимает кнопку и соответствующий ей код
+// функция выделяет фоном код при клике на кнопку
+// принимает кнопку стека и соответствующий ей блок кода
 function markCode(code, button) {
 
     //проверяем, выделены ли на странице уже какие-то элементы
@@ -67,12 +84,12 @@ function markCode(code, button) {
 
     // добавляем классы
     code.classList.add("marked-code");
-    button.classList.add("marked-btn");
-    
+    button.classList.add("marked-btn");   
+
 }
 
 // функция убирает предыдущие выделения кода
-// принимает коллекцию элементов - кода с классом marked-code и кнопок с классом marked-btn
+// принимает коллекцию элементов - коды с классом marked-code и кнопки с классом marked-btn
 function cancelMarkCode(code, button) {
 
     // удаляем выделение кода (кроме последнего элемента в коллекции - текущего) и класс
@@ -89,4 +106,36 @@ function cancelMarkCode(code, button) {
         button[i].classList.remove("marked-btn");
     }
 
+}
+
+// функция подчеркивает элемент, на который наведен курсор мыши
+// принимает элемент li, на который навели, и содержимое span (строку кода)
+function showCodeSolution(elem, codeStr) {
+    //console.log(elem);
+    //console.log(codeStr);
+    
+    elem.classList.add("underlined");
+                                                        // курсор прячется,
+                                                        // слева от строки в сторону кода добавляется стрелка
+                                         
+    let allCodeSpan = document.querySelectorAll("code span"); // коллекция элементов кода 
+
+    for(let i = 0; i < allCodeSpan.length; i++) {
+
+        if(allCodeSpan[i].innerText === codeStr) {
+            let code = allCodeSpan[i];
+            code.style.textDecoration = "underline";
+
+            // при уходе курсора
+            elem.addEventListener("mouseout", function () { hideCodeSolution(elem, code) });
+        }
+    }
+
+}
+
+// функция скрывает подчеркивание после ухода мыши
+// принимает элемент пункта справа и фрагмент кода слева
+function hideCodeSolution(elem, code) {
+    elem.classList.remove("underlined");
+    code.style.textDecoration = "none";
 }
