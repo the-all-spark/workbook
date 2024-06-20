@@ -94,19 +94,19 @@ main {
                         <button class="js">JavaScript</button>
                     </div>
                     <div class="stack-explain">
-                        <ol>
-                            <li>обернуть всю страницу в блок, например, <code>&lt;div class="container"&gt;</code>;</li>
-                            <li>сделать из блока-обертки flex-контейнер;</li>
-                            <li>в блок-обертку вложить <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> и <code>&lt;footer&gt;</code>;</li>
-                            <li>родителю (блоку-обертке) задать <code>flex-direction: column;</code> чтобы блоки встали друг под другом, а не в ряд;
-                            <li>родителю задать <code>min-height: 100vh;</code>, чтобы он занимал как минимум всю высоту экрана;</li>
-                            <li>блоку <code>&lt;main&gt;</code> задать <code>flex: 1;</code> (или <code>flex-grow: 1;</code>)</li>
+                        <ol class="stack-explain-solution">
+                            <li class="explain-point-1">обернуть всю страницу в блок, например, <span>&lt;div class="container"&gt;</span>;</li>
+                            <li class="explain-point-2">сделать из блока-обертки flex-контейнер (<span>display</span><span>: flex;</span>);</li>
+                            <li class="explain-point-3">в блок-обертку вложить <span>&lt;header&gt;</span>, <span>&lt;main&gt;</span> и <span>&lt;footer&gt;</span>;</li>
+                            <li class="explain-point-4">родителю (блоку-обертке) задать <span>flex-direction</span><span>: column;</span> чтобы блоки встали друг под другом, а не в ряд;
+                            <li class="explain-point-5">родителю задать <span>min-height</span><span>: 100vh;</span>, чтобы он занимал как минимум всю высоту экрана;</li>
+                            <li class="explain-point-6">блоку <span>main</span> задать <span>flex</span><span>: 1;</span></span> (или <span>flex-grow: 1;</span>)</li>
                         </ol>
                         <p class="stack-explain-result">В результате: </p>
                         <ul>
-                            <li>Центральный блок страницы (<code>&lt;main&gt;</code>) будет всегда растягиваться на всё доступное свободное пространство.</li>
-                            <li>Из-за этого <code>&lt;footer&gt;</code> всегда будет прижиматься к нижнему краю страницы.</li>
-                            <li>При этом, если контента в <code>&lt;main&gt;</code> будет больше чем на один экран, то он растянется и подстроится под весь объем.</li>
+                            <li>Центральный блок страницы (<span>&lt;main&gt;</span>) будет всегда растягиваться на всё доступное свободное пространство.</li>
+                            <li>Из-за этого <span>&lt;footer&gt;</span> всегда будет прижиматься к нижнему краю страницы.</li>
+                            <li>При этом, если контента в <span>&lt;main&gt;</span> будет больше чем на один экран, то он растянется и подстроится под весь объем.</li>
                         </ul>
                     </div>
                     <div class="stack-reference">
