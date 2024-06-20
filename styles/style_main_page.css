@@ -115,8 +115,8 @@ button.html {
     color: rgb(216 15 15 / 88%);
 }
 
-.underlined {
-    text-decoration: underline;
+.stack-explain-solution li {
+    text-decoration: none;
 }
 
 .stack-explain span {

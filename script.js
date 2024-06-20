@@ -114,10 +114,10 @@ function showCodeSolution(elem, codeStr) {
     //console.log(elem);
     //console.log(codeStr);
     
-    elem.classList.add("underlined");
-                                                        // курсор прячется,
-                                                        // слева от строки в сторону кода добавляется стрелка
-                                         
+    elem.style.textDecoration = "underline";
+    elem.style.transition = "text-decoration 2s linear 1s";
+    elem.style.cursor = "default";
+                                                                                     
     let allCodeSpan = document.querySelectorAll("code span"); // коллекция элементов кода 
 
     for(let i = 0; i < allCodeSpan.length; i++) {
@@ -136,6 +136,6 @@ function showCodeSolution(elem, codeStr) {
 // функция скрывает подчеркивание после ухода мыши
 // принимает элемент пункта справа и фрагмент кода слева
 function hideCodeSolution(elem, code) {
-    elem.classList.remove("underlined");
+    elem.style.textDecoration = "none";
     code.style.textDecoration = "none";
 }
