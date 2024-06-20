@@ -16,7 +16,8 @@ main {
     /*элемент занимает максимально свободного пространства*/
 }
 
-/* ---- Прочие стили ---- */
+/* ---- Cтили блока пояснения решения ---- */
+
 /*.solution {
     display: grid;
     grid-template-areas: "code stack";
@@ -114,9 +115,14 @@ button.html {
     color: rgb(216 15 15 / 88%);
 }
 
-/*.link {
-    text-align: right;
-}*/
+.underlined {
+    text-decoration: underline;
+}
+
+.stack-explain span {
+    font-family: monospace;
+    color: #dd2c2c;
+}
 
 /* ---- Стили отображенного кода ---- */
 
