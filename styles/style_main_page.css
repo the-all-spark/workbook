@@ -93,6 +93,11 @@ button.html {
     flex: 1;
 }
 
+.help {
+    font-size: 13px;
+    color: gray;
+}
+
 .stack-explain-result {
     font-family: 'Roboto bold';
 }
