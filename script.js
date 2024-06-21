@@ -37,7 +37,7 @@ function start() {
     }
 
     // при наведении на текст пояснения решения (пункты списка) подчеркиваем код слева
-    let solutionElem = document.querySelectorAll(".stack-explain-solution li"); // пункты списка
+    let solutionElem = document.querySelectorAll(".solution-explain li"); // пункты списка
     //console.log(solutionElem);
 
     // перебираем элементы li и отдельно в них - элементы span

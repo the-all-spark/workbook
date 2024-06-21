@@ -1,4 +1,4 @@
-/* ---- Основного стили блока ---- */
+/* ---- Основные стили блока (решение задачи) ---- */
 
 .container {
     display: flex; 
@@ -18,27 +18,13 @@ main {
 
 /* ---- Cтили блока пояснения решения ---- */
 
-/*.solution {
-    display: grid;
-    grid-template-areas: "code stack";
-    grid-template-columns: 60% 35%;
-    grid-template-rows: 1fr;
-    column-gap: 50px;
+.task {
+    margin-bottom: 30px;
 }
 
-.code {
-    grid-area: code;
-    width: auto;
-    height: 630px;
-    background-color: rgb(186, 193, 200);
+.task span {
+    color: rgb(216 15 15 / 88%);
 }
-
-.stack {
-    grid-area: stack;
-    width: auto;
-    height: 630px;
-    background-color: rgb(186, 193, 200);
-}*/
 
 .solution {
     display: flex;
@@ -46,28 +32,16 @@ main {
     flex-wrap: wrap;
 }
 
-.code {
-    width: 58%;
-    height: auto;
-    background-color: #232323;
-    padding-top: 10px;
-}
-
-.stack {
-    width: 38%;
-    min-height: 100%;
+.solution-stack-code {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 0 20px;
-    align-content: space-between;
-    flex-wrap: wrap;
 }
 
 .stack-btn {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 10px 50px;
 }
 
 .stack-btn button.html,
@@ -88,7 +62,25 @@ button.html {
     background-color: transparent;
 }
 
-.stack-explain {
+.code {
+    width: auto;
+    height: 100%;
+    background-color: #232323;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.solution-text {
+    width: 38%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.text-explain {
     padding: 0 20px;
     flex: 1;
 }
@@ -98,35 +90,27 @@ button.html {
     color: gray;
 }
 
-.stack-explain-result {
+.solution-explain li {
+    text-decoration: none;
+}
+
+.text-explain span {
+    font-family: monospace;
+    color: #dd2c2c;
+}
+
+.result-explain {
     font-family: 'Roboto bold';
 }
 
-.stack-reference {
+.text-reference {
     padding: 0 20px;
     align-self: flex-end;
 }
 
-.stack-reference p {
+.text-reference p {
     font-size: 14px;
     text-align: right;
-}
-
-.task {
-    margin-bottom: 30px;
-}
-
-.task span {
-    color: rgb(216 15 15 / 88%);
-}
-
-.stack-explain-solution li {
-    text-decoration: none;
-}
-
-.stack-explain span {
-    font-family: monospace;
-    color: #dd2c2c;
 }
 
 /* ---- Стили отображенного кода ---- */

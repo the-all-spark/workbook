@@ -59,7 +59,13 @@
             <h1 class="task">Задача: <span>Как прижать футер к нижнему краю экрана вне зависимости от количества контента на странице?</span></h1>
 
             <div class="solution">
-                <div class="code">
+                <div class="solution-stack-code">
+                    <div class="stack-btn">
+                        <button class="html">HTML</button>
+                        <button class="css">CSS</button>
+                        <button class="js">JavaScript</button>
+                    </div>
+                    <div class="code">
 
 <!-- Код решения задачи -->                    
 <pre><code class="code-html">&lt;div class="container"&gt;
@@ -86,16 +92,12 @@ main {
     window.addEventListener("load", start);
 </code></pre> -->
 
-                </div>
-                <div class="stack">
-                    <div class="stack-btn">
-                        <button class="html">HTML</button>
-                        <button class="css">CSS</button>
-                        <button class="js">JavaScript</button>
                     </div>
-                    <div class="stack-explain">
+                </div>
+                <div class="solution-text">
+                    <div class="text-explain">
                         <p class="help">Наведи на пункт списка, чтобы подсветить соответствующий код.</p>
-                        <ol class="stack-explain-solution">
+                        <ol class="solution-explain">
                             <li class="explain-point-1">обернуть всю страницу в блок, например, <span>&lt;div class="container"&gt;</span>;</li>
                             <li class="explain-point-2">сделать из блока-обертки flex-контейнер (<span>display</span><span>: flex;</span>);</li>
                             <li class="explain-point-3">в блок-обертку вложить <span>&lt;header&gt;</span>, <span>&lt;main&gt;</span> и <span>&lt;footer&gt;</span>;</li>
@@ -103,14 +105,14 @@ main {
                             <li class="explain-point-5">родителю задать <span>min-height</span><span>: 100vh;</span>, чтобы он занимал как минимум всю высоту экрана;</li>
                             <li class="explain-point-6">блоку <span>main</span> задать <span>flex</span><span>: 1;</span></span> (или <span>flex-grow: 1;</span>)</li>
                         </ol>
-                        <p class="stack-explain-result">В результате: </p>
+                        <p class="result-explain">В результате: </p>
                         <ul>
                             <li>Центральный блок страницы (<span>&lt;main&gt;</span>) будет всегда растягиваться на всё доступное свободное пространство.</li>
                             <li>Из-за этого <span>&lt;footer&gt;</span> всегда будет прижиматься к нижнему краю страницы.</li>
                             <li>При этом, если контента в <span>&lt;main&gt;</span> будет больше чем на один экран, то он растянется и подстроится под весь объем.</li>
                         </ul>
                     </div>
-                    <div class="stack-reference">
+                    <div class="text-reference">
                         <p>Для материала на главной странице использован 
                             <a href="https://doka-guide.vercel.app/css/flexbox-guide/" target="_blank">источник.</a>
                         </p>
