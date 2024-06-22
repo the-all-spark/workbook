@@ -36,6 +36,31 @@ function start() {
         btnJs.addEventListener("click", function () { markCode(codeJs, btnJs) });  
     }
 
+    // при клике вне кнопок скрыть все выделения блоков кода
+    document.addEventListener('click', function(e) {   
+        let buttons = document.querySelectorAll(".stack-btn button"); //коллекция кнопок ко стеками
+
+        // если кликнули не по одной из трех кнопок стека  - значит клик был снаружи 
+        if (e.target != buttons[0] && e.target != buttons[1] && e.target != buttons[2]) {
+            console.log('Клик снаружи');
+
+            let markedCodeElem = document.getElementsByClassName("marked-code");
+            let markedBtnElem = document.getElementsByClassName("marked-btn");
+    
+            // запускаем функцию отмены выделений кода и кнопок 
+            if(markedCodeElem.length > 0 || markedBtnElem.length > 0) {
+                cancelMarkCode(markedCodeElem, markedBtnElem); 
+            } 
+
+        } 
+        /*else {
+            console.log(e.target);
+        }*/
+    
+    });
+
+
+
     // при наведении на текст пояснения решения (пункты списка) подчеркиваем код слева
     let solutionElem = document.querySelectorAll(".solution-explain li"); // пункты списка
     //console.log(solutionElem);
@@ -94,6 +119,8 @@ function cancelMarkCode(code, button) {
 
     // удаляем выделение кода (кроме последнего элемента в коллекции - текущего) и класс
     for(let i = 0; i <=  code.length - 1; i++) {
+        
+        //code[i].style.transition = "background-color 0.4s linear";
         code[i].style.backgroundColor = "transparent";
         code[i].classList.remove("marked-code");
     }
@@ -101,6 +128,7 @@ function cancelMarkCode(code, button) {
     // возвращаем стандартное выделение кнопкам (кроме последнего элемента в коллекции - текущего) и удаляем класс
     for(let i = 0; i <=  button.length - 1; i++) {
         button[i].style.backgroundColor = "#fdfdfd";     
+        //button[i].style.transition = "all .2s linear";
         button[i].style.color = "#000000";
         button[i].style.border = "2px solid #d1d1d1";
         button[i].classList.remove("marked-btn");
