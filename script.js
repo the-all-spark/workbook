@@ -120,7 +120,7 @@ function cancelMarkCode(code, button) {
     // удаляем выделение кода (кроме последнего элемента в коллекции - текущего) и класс
     for(let i = 0; i <=  code.length - 1; i++) {
         
-        //code[i].style.transition = "background-color 0.4s linear";
+        code[i].style.transition = "background-color 0.4s linear";
         code[i].style.backgroundColor = "transparent";
         code[i].classList.remove("marked-code");
     }
@@ -128,7 +128,7 @@ function cancelMarkCode(code, button) {
     // возвращаем стандартное выделение кнопкам (кроме последнего элемента в коллекции - текущего) и удаляем класс
     for(let i = 0; i <=  button.length - 1; i++) {
         button[i].style.backgroundColor = "#fdfdfd";     
-        //button[i].style.transition = "all .2s linear";
+        button[i].style.transition = "all .2s linear";
         button[i].style.color = "#000000";
         button[i].style.border = "2px solid #d1d1d1";
         button[i].classList.remove("marked-btn");
