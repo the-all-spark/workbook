@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/style_main_page.css">
     <script src="./scripts/script_main_page.js"></script>
-
+    
     <!-- Библиотека стилизации кода -->
     <link rel="stylesheet" href="./hightlight_library/vs2015.css">
     <script src="./hightlight_library/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-    <title>Workbook - рабочая тетрадь по решению задач (HTML, CSS, JS)</title>
+    <title>Workbook - Как переключить язык страницы</title>
 </head>
 
 <body>
     <div class="container">
         <header>
             <div class="header-logo-title">
-                <a href="#">
+                <a href="./index.html">
                     <div class="header-logo"></div>
                 </a>
                 <div class="header-title">Как сделать..?</div>
@@ -47,7 +47,7 @@
                 </button>
 
                 <button class="button-menu">
-                    <a href="./switch_lang.html">
+                    <a href="#">
                         <div class="button-top">JavaScript</div>
                         <div class="button-bottom"></div>
                         <div class="button-base"></div>
@@ -57,7 +57,24 @@
             </ul>
         </header>
         <main>
-            <h1 class="task">Задача: <span>Как прижать футер к нижнему краю экрана вне зависимости от количества контента на странице?</span></h1>
+            <h1 class="task">Задача: <span>Как переключиться на другой язык страницы?</span></h1>
+
+            <div class="task-description">
+                <p>Предположим, у нас имеется <b>мультиязычная страница</b>. Тогда при клике на соответствующую кнопку (RU или EN) пользователь 
+                    может изменить язык отображаемого текста. <br>
+                    Вот этот переключатель - попробуйте!
+                </p>
+                <div class="switch-lang-btn">
+                    <span>Переключить язык | Switch the language:</span>
+                    <button class="ru-btn" disabled>RU</button>
+                    <button class="en-btn">EN</button>
+                </div>
+                <p>По умолчанию для отображения страницы установлен русский язык (кнопка переключения на RU заблокирована), 
+                    но можно предоставить пользователю возможность самому выбрать, на каком языке изначально показать страницу,
+                    например, через форму.<br>
+                    Поиграться с такой формой можно по <a href="https://codepen.io/Lisovolk/pen/ExzLqjJ" target="_blank">ссылке (проект в Codepen)</a>
+                </p>
+            </div>
 
             <div class="solution">
                 <div class="solution-stack-code">
@@ -114,9 +131,7 @@ main {
                         </ul>
                     </div>
                     <div class="text-reference">
-                        <p>Для материала на главной странице использован 
-                            <a href="https://doka-guide.vercel.app/css/flexbox-guide/" target="_blank">источник.</a>
-                        </p>
+                        <p>Использован собственный материал</p>
                     </div>
                 </div>
             </div>
