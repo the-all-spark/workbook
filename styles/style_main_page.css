@@ -36,6 +36,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    min-width: 55%;
 }
 
 .stack-btn {
@@ -128,6 +129,7 @@ button.html {
     width: 50%;
     padding: 15px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .switch-lang-btn span {
@@ -141,4 +143,24 @@ button.html {
     padding: 5px 0;
     background-color: #fdfdfd;
     border: 2px solid #d1d1d1;
+}
+
+/* Кнопки переключения языка*/
+.ru-btn:disabled,
+.en-btn:disabled {
+    cursor: not-allowed;
+}
+
+.ru-btn,
+.en-btn {
+    cursor: pointer;
+}
+
+/* Отображение контента */
+.ru-text {
+    display: block;
+}
+
+.en-text {
+    display: none;
 }
