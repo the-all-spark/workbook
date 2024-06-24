@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/style_main_page.css">
     <script src="./scripts/script_main_page.js"></script>
+    <script src="./scripts/script_ru_en.js"></script>
     
     <!-- Библиотека стилизации кода -->
     <link rel="stylesheet" href="./hightlight_library/vs2015.css">
@@ -24,10 +25,12 @@
                 <a href="./index.html">
                     <div class="header-logo"></div>
                 </a>
-                <div class="header-title">Как сделать..?</div>
+                <div class="header-title ru-text">Как сделать..?</div>
+                <div class="header-title en-text">How to do..?</div>
                 <div class="header-cursor"></div>
             </div>
-            <p class="choose-stack">Выбери задачу:</p>
+            <p class="choose-stack ru-text">Выбери задачу:</p>
+            <p class="choose-stack en-text">Choose the task:</p>
             <ul class="header-nav">
                     
                 <button class="button-menu">
@@ -57,23 +60,35 @@
             </ul>
         </header>
         <main>
-            <h1 class="task">Задача: <span>Как переключиться на другой язык страницы?</span></h1>
-
+            <h1 class="task ru-text">Задача: <span>Как переключиться на другой язык страницы?</span></h1>
+            <h1 class="task en-text">Task: <span>How to switch to a different language on the page?</span></h1>
+            
             <div class="task-description">
-                <p>Предположим, у нас имеется <b>мультиязычная страница</b>. Тогда при клике на соответствующую кнопку (RU или EN) пользователь 
+                <p class="ru-text">Предположим, у нас имеется <b>мультиязычная страница</b>. Тогда при клике на соответствующую кнопку (RU или EN) пользователь 
                     может изменить язык отображаемого текста. <br>
-                    Вот этот переключатель - попробуйте!
+                    Вот этот переключатель. Попробуйте!
+                </p>
+                <p class="en-text">Let's assume that we have a <b>multi-language page</b>. In this case, by clicking on the corresponding button (RU or EN) 
+                    the user can change the language of the displayed text. <br>
+                    Here is this switcher. Try it!
                 </p>
                 <div class="switch-lang-btn">
-                    <span>Переключить язык | Switch the language:</span>
+                    <span>Переключите язык | Switch the language:</span>
                     <button class="ru-btn" disabled>RU</button>
                     <button class="en-btn">EN</button>
                 </div>
-                <p>По умолчанию для отображения страницы установлен русский язык (кнопка переключения на RU заблокирована), 
-                    но можно предоставить пользователю возможность самому выбрать, на каком языке изначально показать страницу,
-                    например, через форму.<br>
+                <p class="ru-text">По умолчанию, для отображения страницы установлен русский язык (кнопка переключения RU заблокирована), 
+                    но можно предоставить пользователю возможность самому выбрать, на каком языке ему изначально показать страницу,
+                    например, через <b>форму</b>.
                     Поиграться с такой формой можно по <a href="https://codepen.io/Lisovolk/pen/ExzLqjJ" target="_blank">ссылке (проект в Codepen)</a>
                 </p>
+                <p class="en-text">By default, Russian language was set to display the page (the RU switch button is blocked), 
+                    but you can give the user the opportunity to choose in which language the page should be initially displayed, 
+                    for example, via a <b>form</b>.<br>
+                    You can check such a form at the <a href="https://codepen.io/Lisovolk/pen/ExzLqjJ" target="_blank">link (project in Codepen).</a>
+                </p>
+                <p class="ru-text">Итак, как сделать переключение между языками страницы?</p>
+                <p class="en-text">So, how to switch between the languages of the page?</p>
             </div>
 
             <div class="solution">
@@ -85,37 +100,74 @@
                     </div>
                     <div class="code">
 
-<!-- Код решения задачи -->                    
-<pre><code class="code-html">&lt;div class="container"&gt;
-    &lt;header&gt; &lt;!-- Блок header --&gt; &lt;/header&gt;
-    &lt;main&gt; &lt;!-- Блок main --&gt; &lt;/main&gt;
-    &lt;footer&gt; &lt;!-- Блок footer --&gt; &lt;/footer&gt;
+<!-- Код решения задачи -->   
+<!-- Чтобы код HTML корректно подсвечивался, использовать класс xml для блока -->    
+<pre><code class="code-html xml">&lt;span&gt;Переключите язык:&lt;/span&gt;
+&lt;button class="ru-btn" disabled&gt;RU&lt;/button&gt;
+&lt;button class="en-btn"&gt;EN&lt;/button&gt;
+
+&lt;div class="ru-text"&gt;
+    Здесь блок, включающий русский текст. 
+&lt;/div&gt; 
+&lt;div class="en-text"&gt;
+    This is block with English text. 
+&lt;/div&gt;  
+&lt;div class="ru-text"&gt;
+    Здесь еще блок русского текста. 
+&lt;/div&gt; 
+&lt;div class="en-text"&gt;
+    And another English text.
 &lt;/div&gt;</code></pre>
 
-<pre><code class="code-css">.container {
-    display: flex; 
-    /*делаем контейнер флексом*/
-    flex-direction: column; 
-    /*выстраиваем элементы сверху вниз*/
-    min-height: 100vh; 
-    /*отображаем блок на весь экран*/
-} 
-main {
-    flex: 1; /*flex-grow: 1;*/
-    /*элемент занимает максимально свободного пространства*/
+<pre><code class="code-css">/* Отображение контента */
+.ru-text {
+    display: block;
+}
+.en-text {
+    display: none;
 }</code></pre>
 
-<!-- Для проверки кода JS на главной странице (пока без стилизации) -->
-<!-- <pre><code class="code-js">
-    window.addEventListener("load", start);
-</code></pre> -->
+<pre><code class="code-js">// Переключение языка
+let engTexts = document.querySelectorAll(".en-text");
+let rusTexts = document.querySelectorAll(".ru-text");
+let engButton = document.querySelector(".en-btn");
+let rusButton = document.querySelector(".ru-btn");
+ 
+// при клике на кнопку EN
+engButton.addEventListener("click", switchToEnglish);
+// при клике на кнопку RU
+rusButton.addEventListener("click", switchToRussian);
+
+function switchToEnglish() {
+   for(let i= 0; i < rusTexts.length; i++) {
+      rusTexts[i].style.display = "none";
+   }
+   for(let j= 0; j < engTexts.length; j++) {
+      engTexts[j].style.display = "block";
+   }
+   engButton.setAttribute("disabled", "");
+   rusButton.removeAttribute("disabled");
+}
+
+function switchToRussian() {      
+   for(let i= 0; i < rusTexts.length; i++) {
+      rusTexts[i].style.display = "block";
+   }
+   for(let j= 0; j < engTexts.length; j++) {
+      engTexts[j].style.display = "none";
+   }
+   rusButton.setAttribute("disabled", "");
+   engButton.removeAttribute("disabled"); 
+}</code></pre>
 
                     </div>
                 </div>
                 <div class="solution-text">
                     <div class="text-explain">
-                        <p class="help">Наведи на пункт списка, чтобы подсветить соответствующий код.</p>
-                        <ol class="solution-explain">
+                        <p class="help ru-text">Наведи на пункт списка, чтобы подсветить соответствующий код.</p>
+                        <p class="help en-text">Hover on a list item to highlight the corresponding code.</p>
+
+                        <ol class="solution-explain ru-text">
                             <li class="explain-point-1">обернуть всю страницу в блок, например, <span>&lt;div class="container"&gt;</span>;</li>
                             <li class="explain-point-2">сделать из блока-обертки flex-контейнер (<span>display</span><span>: flex;</span>);</li>
                             <li class="explain-point-3">в блок-обертку вложить <span>&lt;header&gt;</span>, <span>&lt;main&gt;</span> и <span>&lt;footer&gt;</span>;</li>
@@ -123,6 +175,8 @@ main {
                             <li class="explain-point-5">родителю задать <span>min-height</span><span>: 100vh;</span>, чтобы он занимал как минимум всю высоту экрана;</li>
                             <li class="explain-point-6">блоку <span>main</span> задать <span>flex</span><span>: 1;</span></span> (или <span>flex-grow: 1;</span>)</li>
                         </ol>
+
+
                         <p class="result-explain">В результате: </p>
                         <ul>
                             <li>Центральный блок страницы (<span>&lt;main&gt;</span>) будет всегда растягиваться на всё доступное свободное пространство.</li>
