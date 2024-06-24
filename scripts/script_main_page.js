@@ -38,7 +38,7 @@ function start() {
 
     // при клике вне кнопок скрыть все выделения блоков кода
     document.addEventListener('click', function(e) {   
-        let buttons = document.querySelectorAll(".stack-btn button"); //коллекция кнопок ко стеками
+        let buttons = document.querySelectorAll(".stack-btn button"); //коллекция кнопок со стеками
 
         // если кликнули не по одной из трех кнопок стека  - значит клик был снаружи 
         if (e.target != buttons[0] && e.target != buttons[1] && e.target != buttons[2]) {
