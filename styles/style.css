@@ -23,6 +23,15 @@ body {
 }
 
 /* ------------------- Стили шапки (header) ------------------- */
+.header-logo-title a {
+    filter: opacity(0.8);
+}
+
+.header-logo-title a:hover {
+    cursor: pointer;
+    filter: drop-shadow(2px 2px #373838);
+}
+
 
 header {
     display: grid;
