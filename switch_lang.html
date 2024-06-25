@@ -102,7 +102,7 @@
 
 <!-- Код решения задачи -->   
 <!-- Чтобы код HTML корректно подсвечивался, использовать класс xml для блока -->    
-<pre><code class="code-html xml">&lt;span&gt;Переключите язык:&lt;/span&gt;
+<pre><code class="code-html xml">&lt;span class="switch"&gt;Переключите язык:&lt;/span&gt;
 &lt;button class="ru-btn" disabled&gt;RU&lt;/button&gt;
 &lt;button class="en-btn"&gt;EN&lt;/button&gt;
 
@@ -168,20 +168,37 @@ function switchToRussian() {
                         <p class="help en-text">Hover on a list item to highlight the corresponding code.</p>
 
                         <ol class="solution-explain ru-text">
-                            <li class="explain-point-1">обернуть всю страницу в блок, например, <span>&lt;div class="container"&gt;</span>;</li>
-                            <li class="explain-point-2">сделать из блока-обертки flex-контейнер (<span>display</span><span>: flex;</span>);</li>
-                            <li class="explain-point-3">в блок-обертку вложить <span>&lt;header&gt;</span>, <span>&lt;main&gt;</span> и <span>&lt;footer&gt;</span>;</li>
-                            <li class="explain-point-4">родителю (блоку-обертке) задать <span>flex-direction</span><span>: column;</span> чтобы блоки встали друг под другом, а не в ряд;
-                            <li class="explain-point-5">родителю задать <span>min-height</span><span>: 100vh;</span>, чтобы он занимал как минимум всю высоту экрана;</li>
-                            <li class="explain-point-6">блоку <span>main</span> задать <span>flex</span><span>: 1;</span></span> (или <span>flex-grow: 1;</span>)</li>
+                            <p><b>В HTML-коде:</b></p>
+                            <li class="explain-point-1">Cоздать 2 кнопки - RU и EN - с классами <span>&lt;button class="ru-btn" disabled&gt;</span> 
+                                и <span>&lt;button class="en-btn"&gt;</span>. 
+                                Одну из кнопок сделать неактивной (<span>disabled</span>) (по умолчанию это кнопка переключения на русский язык - RU);</li>
+                            <li class="explain-point-2">Тексту на русском языке (всем элементам <span>&lt;h1&gt;</span>, <span>&lt;div&gt;</span>, <span>&lt;p&gt;</span>,
+                                <span>&lt;span&gt;</span>, <span>&lt;ol&gt;</span>, <span>&lt;ul&gt;</span> и т.д.) присвоить <span>class="ru-text"</span> 
+                                (например, <span>&lt;div class="ru-text"&gt;</span>).</li>
+                            <li class="explain-point-3">Тексту на английском языке присвоить <span>class="en-text"</span> (например, <span>&lt;div class="en-text"&gt;</span>).</li>
+                            
+                            <p><b>В файле CSS:</b></p>
+                            <li class="explain-point-4">Элементы с классом <span>class="ru-text"</span> изначально отобразить (<span>display</span><span>: block;</span>),
+                                а с <span>class="en-text"</span> - скрыть (<span>display</span><span>: none;</span>).</li>
+                            
+                            <p><b>В файле JS:</b></p>
+                            <li class="explain-point-5">Получить доступ к коллекции элементов на русском и английском языке, а также к кнопкам RU и EN 
+                               через <span>document</span>, <span>querySelectorAll</span> и <span>querySelector</span>. Сохранить в переменных.</li>
+                            <li class="explain-point-6">Кнопкам добавить обработчик событий (<span>addEventListener</span>) - 
+                                по клику (<span>"click"</span>) запускать функцию <span>switchToEnglish</span> или <span>switchToRussian</span>.</li>
+                            <li class="explain-point-7">В функции <span>switchToEnglish</span> перебрать все элементы с русским текстом и скрыть их 
+                                (<span>rusTexts[i].style.display = "none";</span>), а элементы с английским текстом, наоборот, отобразить 
+                                (<span>engTexts[j].style.display = "block";</span>).<br>
+                                В функции <span>switchToRussian</span> наоборот.</li>
+                            <li class="explain-point-8">В функции <span>switchToEnglish</span> кнопку EN заблокировать (через <span>setAttribute</span>) - 
+                                <span>"disabled"</span>, а с кнопки RU убрать атрибут <span>"disabled"</span>, чтобы она снова стала активной (через <span>removeAttribute</span>).<br>
+                                В функции <span>switchToRussian</span> наоборот.</li>
                         </ol>
-
 
                         <p class="result-explain">В результате: </p>
                         <ul>
-                            <li>Центральный блок страницы (<span>&lt;main&gt;</span>) будет всегда растягиваться на всё доступное свободное пространство.</li>
-                            <li>Из-за этого <span>&lt;footer&gt;</span> всегда будет прижиматься к нижнему краю страницы.</li>
-                            <li>При этом, если контента в <span>&lt;main&gt;</span> будет больше чем на один экран, то он растянется и подстроится под весь объем.</li>
+                            <li>При клике на кнопку EN будет отображаться контент на английском языке. Сама кнопка станет недоступной.</li>
+                            <li>При клике на кнопку RU - контент на русском языке. При этом кнопка станет недоступной.</li>
                         </ul>
                     </div>
                     <div class="text-reference">
