@@ -167,6 +167,8 @@ function switchToRussian() {
                         <p class="help ru-text">Наведи на пункт списка, чтобы подсветить соответствующий код.</p>
                         <p class="help en-text">Hover on a list item to highlight the corresponding code.</p>
 
+                        <!-- Пояснение кода - RU | EN -->
+                        <!-- RU -->
                         <ol class="solution-explain ru-text">
                             <p><b>В HTML-коде:</b></p>
                             <li class="explain-point-1">Cоздать 2 кнопки - RU и EN - с классами <span>&lt;button class="ru-btn" disabled&gt;</span> 
@@ -195,14 +197,54 @@ function switchToRussian() {
                                 В функции <span>switchToRussian</span> наоборот.</li>
                         </ol>
 
-                        <p class="result-explain">В результате: </p>
-                        <ul>
+                        <!-- EN -->
+                        <ol class="solution-explain en-text">
+                            <p><b>In HTML code:</b></p>
+                            <li class="explain-point-1">Create 2 buttons - RU and EN - with classes <span>&lt;button class="ru-btn" disabled&gt;</span> 
+                                and <span>&lt;button class="en-btn"&gt;</span>. 
+                                One of the buttons should be inactive (<span>disabled</span>) (by default this is the button to switch to Russian language - RU);</li>
+                            <li class="explain-point-2">Assign <span>class="ru-text"</span> to the texts in Russian (all elements, such as <span>&lt;h1&gt;</span>, 
+                                <span>&lt;div&gt;</span>, <span>&lt;p&gt;</span>, <span>&lt;span&gt;</span>, <span>&lt;ol&gt;</span>, <span>&lt;ul&gt;</span>, etc.)
+                                (for example, <span>&lt;div class="ru-text"&gt;</span>).</li>
+                            <li class="explain-point-3">Assign <span>class="en-text"</span> to the texts in English (for example, <span>&lt;div class="en-text"&gt;</span>).</li>
+                            
+                            <p><b>In CSS file:</b></p>
+                            <li class="explain-point-4">Elements with class <span>class="en-text"</span> should be initially displayed (<span>display</span><span>: block;</span>),
+                                with <span>class="en-text"</span> - hidden (<span>display</span><span>: none;</span>).</li>
+                            
+                            <p><b>In JS file:</b></p>
+                            <li class="explain-point-5">Get access to the collection of elements in Russian and English, as well as to the buttons RU and EN
+                                via <span>document</span>, <span>querySelectorAll</span> and <span>querySelector</span>. Save in variables.</li>
+                            <li class="explain-point-6">Add an event handler to the buttons (<span>addEventListener</span>) - 
+                                on click (<span>"click"</span>) one of the functions (<span>switchToEnglish</span> or <span>switchToRussian</span>) should be run.</li>
+                            <li class="explain-point-7">In function called <span>switchToEnglish</span> let's search through all items with Russian text and hide them
+                                (<span>rusTexts[i].style.display = "none";</span>), but element with English test we should, on the contrary, show  наоборот,
+                                (<span>engTexts[j].style.display = "block";</span>).<br>
+                                In function called <span>switchToRussian</span> - inversely.</li>
+                            <li class="explain-point-8">In function called <span>switchToEnglish</span> the button EN should be blocked (via <span>setAttribute</span>) - 
+                                <span>"disabled"</span>, the attribute <span>"disabled"</span> should be deleted from RU button in order to make it available (via <span>removeAttribute</span>).<br>
+                                In function called <span>switchToRussian</span> - inversely.</li>
+                        </ol>
+
+                        <!-- Результат выполнения кода - RU | EN -->
+                        <p class="result-explain ru-text">В результате: </p>
+                        <ul class="ru-text">
                             <li>При клике на кнопку EN будет отображаться контент на английском языке. Сама кнопка станет недоступной.</li>
                             <li>При клике на кнопку RU - контент на русском языке. При этом кнопка станет недоступной.</li>
                         </ul>
+
+                        <p class="result-explain en-text">In result: </p>
+                        <ul class="en-text">
+                            <li>On clicking the EN button, content in English will be displayed. The button will become inaccessible.</li>
+                            <li>On clicking the RU button the content will be in Russian. In this case the RU button will become unavailable.</li>
+                        </ul>
+
                     </div>
+
+                    <!-- Ссылка на материал - RU | EN -->
                     <div class="text-reference">
-                        <p>Использован собственный материал</p>
+                        <p class="ru-text">Использован собственный материал</p>
+                        <p class="en-text">Based on original material</p>
                     </div>
                 </div>
             </div>
