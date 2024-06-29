@@ -52,18 +52,11 @@ function start() {
                 cancelMarkCode(markedCodeElem, markedBtnElem); 
             } 
 
-        } 
-        /*else {
-            console.log(e.target);
-        }*/
-    
+        }     
     });
-
-
 
     // при наведении на текст пояснения решения (пункты списка) подчеркиваем код слева
     let solutionElem = document.querySelectorAll(".solution-explain li"); // пункты списка
-    //console.log(solutionElem);
 
     // перебираем элементы li и отдельно в них - элементы span
     for(let i = 0; i < solutionElem.length; i++) {
@@ -80,14 +73,14 @@ function start() {
 
 }
 
-// функция делает кнопку неактивной, если на странице отсутствует HTML, CSS или JS код
+// функция делает кнопку неактивной, если на странице отсутствует HTML, CSS или JS код:
 // принимает нажатую кнопку
 function makeButtonDisabled(button) {
     button.setAttribute("disabled", "");
     button.style.cursor = "not-allowed";
 }
 
-// функция выделяет фоном код при клике на кнопку
+// функция выделяет фоном код при клике на кнопку:
 // принимает кнопку стека и соответствующий ей блок кода
 function markCode(code, button) {
 
@@ -113,7 +106,7 @@ function markCode(code, button) {
 
 }
 
-// функция убирает предыдущие выделения кода
+// функция отменяет предыдущие выделения кода:
 // принимает коллекцию элементов - коды с классом marked-code и кнопки с классом marked-btn
 function cancelMarkCode(code, button) {
 
@@ -136,12 +129,10 @@ function cancelMarkCode(code, button) {
 
 }
 
-// функция подчеркивает элемент, на который наведен курсор мыши
+// функция подчеркивает элемент, на который наведен курсор мышки:
 // принимает элемент li, на который навели, и содержимое span (строку кода)
 function showCodeSolution(elem, codeStr) {
-    //console.log(elem);
-    //console.log(codeStr);
-    
+
     elem.style.textDecoration = "underline";
     elem.style.transition = "text-decoration 2s linear 1s";
     elem.style.cursor = "default";
@@ -161,7 +152,7 @@ function showCodeSolution(elem, codeStr) {
 
 }
 
-// функция скрывает подчеркивание после ухода мыши
+// функция скрывает подчеркивание после ухода мышки:
 // принимает элемент пункта справа и фрагмент кода слева
 function hideCodeSolution(elem, code) {
     elem.style.textDecoration = "none";
