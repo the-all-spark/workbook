@@ -36,13 +36,12 @@ function start() {
         btnJs.addEventListener("click", function () { markCode(codeJs, btnJs) });  
     }
 
-    // при клике вне кнопок скрыть все выделения блоков кода
+    // при клике вне кнопок, скрыть все выделения блоков кода
     document.addEventListener('click', function(e) {   
         let buttons = document.querySelectorAll(".stack-btn button"); //коллекция кнопок со стеками
 
         // если кликнули не по одной из трех кнопок стека  - значит клик был снаружи 
         if (e.target != buttons[0] && e.target != buttons[1] && e.target != buttons[2]) {
-            console.log('Клик снаружи');
 
             let markedCodeElem = document.getElementsByClassName("marked-code");
             let markedBtnElem = document.getElementsByClassName("marked-btn");
@@ -51,7 +50,6 @@ function start() {
             if(markedCodeElem.length > 0 || markedBtnElem.length > 0) {
                 cancelMarkCode(markedCodeElem, markedBtnElem); 
             } 
-
         }     
     });
 
@@ -103,7 +101,6 @@ function markCode(code, button) {
     // добавляем классы
     code.classList.add("marked-code");
     button.classList.add("marked-btn");   
-
 }
 
 // функция отменяет предыдущие выделения кода:
@@ -112,7 +109,6 @@ function cancelMarkCode(code, button) {
 
     // удаляем выделение кода (кроме последнего элемента в коллекции - текущего) и класс
     for(let i = 0; i <=  code.length - 1; i++) {
-        
         code[i].style.transition = "background-color 0.4s linear";
         code[i].style.backgroundColor = "transparent";
         code[i].classList.remove("marked-code");
@@ -126,13 +122,11 @@ function cancelMarkCode(code, button) {
         button[i].style.border = "2px solid #d1d1d1";
         button[i].classList.remove("marked-btn");
     }
-
 }
 
 // функция подчеркивает элемент, на который наведен курсор мышки:
-// принимает элемент li, на который навели, и содержимое span (строку кода)
+// принимает элемент li, на который навели курсор, и содержимое span (строку кода)
 function showCodeSolution(elem, codeStr) {
-
     elem.style.textDecoration = "underline";
     elem.style.transition = "text-decoration 2s linear 1s";
     elem.style.cursor = "default";
@@ -140,7 +134,6 @@ function showCodeSolution(elem, codeStr) {
     let allCodeSpan = document.querySelectorAll("code span"); // коллекция элементов кода 
 
     for(let i = 0; i < allCodeSpan.length; i++) {
-
         if(allCodeSpan[i].innerText === codeStr) {
             let code = allCodeSpan[i];
             code.style.textDecoration = "underline";
@@ -149,10 +142,9 @@ function showCodeSolution(elem, codeStr) {
             elem.addEventListener("mouseout", function () { hideCodeSolution(elem, code) });
         }
     }
-
 }
 
-// функция скрывает подчеркивание после ухода мышки:
+// функция отменяет подчеркивание после ухода мышки:
 // принимает элемент пункта справа и фрагмент кода слева
 function hideCodeSolution(elem, code) {
     elem.style.textDecoration = "none";
