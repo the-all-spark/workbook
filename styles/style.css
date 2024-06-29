@@ -234,6 +234,25 @@ header {
     padding-top: 0;
 }
 
+/*Стили активной (нажатой) кнопки */
+.button-menu.active .button-top {
+    transform: translateY(6px);
+}
+.button-menu.active .button-top::after {
+    border-radius: 6px;
+    padding: 0 2px;
+    background-image: radial-gradient(#ffffff, #b1b1b1);
+}
+.button-menu.active .button-bottom {
+    border-radius: 10px 10px 8px 8px / 8px;
+    padding-top: 0;
+}
+
+.active .button-top:hover,
+.active .button-bottom:hover {
+    cursor: not-allowed;
+}
+
 /* ------------------- Стили, общие для всех блоков (main) ------------------- */
 
 h1 {
