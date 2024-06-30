@@ -36,7 +36,8 @@ Site will be supplemented with new materials.
 3. styling of buttons and links in footer (CSS);
 4. styling of the displayed code-solution of the task (the hightlight.js library is connected);
 5. marking of the corresponding code when clicking on a stack button (HTML, CSS, JavaScript). If the code is not present, the button is inactive. If a click is made outside the stack button, all previous marking will be canceled (JS);
-6. underlining of the line and the corresponding code fragment when hovering over the line in the explanation block. When the cursor leaves the underline line, all marks are deleted (JS).
+6. underlining of the line and the corresponding code fragment when hovering over the line in the explanation block. When the cursor leaves the underline line, all marks are deleted (JS);
+7. adaptive code (CSS).
 
 ### Additional functionality
 
